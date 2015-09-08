@@ -21,11 +21,11 @@
   "files": [
     "index.js"
   ],
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "shelljs": "0.5.1",
     "lodash": "^3.8.0"
   },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
