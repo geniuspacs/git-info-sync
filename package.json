@@ -1,7 +1,7 @@
 {
   "name": "git-info-sync",
   "description": "Get detailed data about current git repo",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "author": {
     "name": "tamtakoe",
     "email": "tamtakoe@gmail.com"
