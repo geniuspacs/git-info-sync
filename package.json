@@ -1,0 +1,32 @@
+{
+  "name": "git-info-sync",
+  "description": "Get detailed data about current git repo",
+  "version": "0.0.1",
+  "author": {
+    "name": "tamtakoe",
+    "email": "tamtakoe@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tamtakoe/git-info-sync.git"
+  },
+  "keywords": [
+    "git",
+    "info",
+    "rev",
+    "sync"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "shelljs": "0.5.1",
+    "lodash": "^3.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
