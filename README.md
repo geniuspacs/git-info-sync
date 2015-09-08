@@ -55,7 +55,7 @@ Type: `Boolean`
 
 Default: true
 
-No cache git info
+Cache git info
 
 ## License
 
