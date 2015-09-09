@@ -13,9 +13,18 @@ npm install git-info-sync
 ```js
 var gitInfo = require('git-info-sync');
 
-var git = gitInfo(['branch', 'shortSHA']); //{ branch: 'master',
-                                           //  shortSHA: '3d0723f' }
-
+gitInfo(['branch', 'shortSHA']); //{ branch: 'master',
+                                 //  shortSHA: '3d0723f' }
+                                           
+gitInfo(); //{ branch: 'master',
+           //  SHA: '3d0723ff637020700ca5f6a394b07f27ddb81df2',
+           //  shortSHA: '3d0723f',
+           //  currentUser: 'someUser',
+           //  lastCommitTime: '2015-09-07 19:01:15 +0300',
+           //  lastCommitMessage: 'bug fixes\n',
+           //  lastCommitAuthor: 'someCommitter',
+           //  tag: '0.1.2',
+           //  remoteOriginUrl: 'https://someuser@github.com/someproject/somerepo.git' }
 ```
 
 ## API

@@ -26,7 +26,7 @@ function execCommand(cmd, args) {
     result = childProcess.spawnSync(cmd, args);
 
     if (result.status !== 0) {
-      console.error('ERROR: failed to execute command: git ' + args.join(' ') + ' (' + result.stderr.toString('utf8') + ')');
+      console.error('ERROR! Failed to execute command: git ' + args.join(' ') + ' (' + result.stderr.toString('utf8') + ')');
 
       return;
     }
@@ -35,7 +35,7 @@ function execCommand(cmd, args) {
     result = shell.exec(cmd + ' ' + args.join(' '), {silent: true});
 
     if (result.code !== 0) {
-      console.error('ERROR: failed to execute command: git ' + args.join(' ') + ' (' + result.output + ')');
+      console.error('ERROR! Failed to execute command: git ' + args.join(' ') + ' (' + result.output + ')');
 
       return;
     }
@@ -53,13 +53,25 @@ module.exports = function(shortcuts, commands, cache) {
   shortcuts = shortcuts || Object.keys(commands);
 
   shortcuts.forEach(function(shortcut) {
-    if (cache && info[shortcut] !== undefined) return;
-
-    var result = execCommand('git', commands[shortcut]);
-
-    if (result !== undefined) {
-      info[shortcut] = result.replace(os.EOL, '').replace('\n', '').replace(/^,?"?|"?,?$/gm, '');
+    if (cache && info[shortcut] !== undefined) {
+      return;
     }
+
+    var args = commands[shortcut];
+
+    if (!(args instanceof Array)) {
+      console.error('ERROR! Shortcut "' + shortcut + '" is undefined');
+
+      return;
+    }
+
+    var result = execCommand('git', args);
+
+    if (result === undefined) {
+      return;
+    }
+
+    info[shortcut] = result.replace(os.EOL, '').replace('\n', '').replace(/^,?"?|"?,?$/gm, '');
   });
 
   return info;
