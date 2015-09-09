@@ -13,14 +13,13 @@ npm install git-info-sync
 ```js
 var gitInfo = require('git-info-sync');
 
-var git = gitInfo(); //{ name: 'master',
-                     //  shortSHA: '3d0723f',
-                     //  tag: '3d0723ff637020700ca5f6a394b07f27ddb81df2' }
+var git = gitInfo(['branch', 'shortSHA']); //{ branch: 'master',
+                                           //  shortSHA: '3d0723f' }
 
 ```
 
 ## API
-### gitInfo([shortcuts] [, commands] [, cache])
+### gitInfo([shortcuts [, commands [, cache]]])
 
 Set attribute `shortcuts` define composition of the resulting data
 
@@ -29,9 +28,9 @@ Set attribute `shortcuts` define composition of the resulting data
 ##### shortcuts
 Type: `Array`
 
-Default: `['name', 'shortSHA', 'tag']`
+Default: all shortcuts
 
-Define composition of the resulting data
+Define composition of the resulting data.
 
 ##### commands
 Type: `Object`
@@ -39,7 +38,7 @@ Type: `Object`
 Extend collection of default shortcuts of commands:
 
 ```
-'name': ['rev-parse', '--abbrev-ref', 'HEAD'],
+'branch': ['rev-parse', '--abbrev-ref', 'HEAD'],
 'SHA': ['rev-parse', 'HEAD']
 'shortSHA': ['rev-parse', '--short', 'HEAD']
 'currentUser': ['config', '--global', 'user.name']
