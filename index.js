@@ -7,15 +7,15 @@ var _            = require('lodash');
 
 var HAS_NATIVE_EXECSYNC = childProcess.hasOwnProperty('spawnSync');
 var defaultCommands = {
-  'branch': ['rev-parse', '--abbrev-ref', 'HEAD'],
-  'SHA': ['rev-parse', 'HEAD'],
-  'shortSHA': ['rev-parse', '--short', 'HEAD'],
-  'currentUser': ['config', '--global', 'user.name'],
-  'lastCommitTime': ['log', '--format="%ai"', '-n1', 'HEAD'],
-  'lastCommitMessage': ['log', '--format="%B"', '-n1', 'HEAD'],
-  'lastCommitAuthor': ['log', '--format="%aN"', '-n1', 'HEAD'],
-  'tag': ['describe', '--always', '--tag', '--abbrev=0'],
-  'remoteOriginUrl': ['config', '--get-all', 'remote.origin.url']
+  branch: ['rev-parse', '--abbrev-ref', 'HEAD'],
+  SHA: ['rev-parse', 'HEAD'],
+  shortSHA: ['rev-parse', '--short', 'HEAD'],
+  currentUser: ['config', '--global', 'user.name'],
+  lastCommitTime: ['log', '--format="%ai"', '-n1', 'HEAD'],
+  lastCommitMessage: ['log', '--format="%B"', '-n1', 'HEAD'],
+  lastCommitAuthor: ['log', '--format="%aN"', '-n1', 'HEAD'],
+  tag: ['describe', '--always', '--tag', '--abbrev=0'],
+  remoteOriginUrl: ['config', '--get-all', 'remote.origin.url']
 };
 var info = {};
 
